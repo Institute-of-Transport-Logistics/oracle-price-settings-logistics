@@ -1,0 +1,101 @@
+[project]
+name = "oracle-paper"
+version = "0.1.0"
+description = "Implementation for the paper An Oracle-based Approach for Price-setting Problems in Logistics (Pommerening et al., 2026)"
+license-files = ["LICENSE"]
+readme = "README.md"
+requires-python = ">=3.11,<3.15"
+license = "PolyForm-Noncommercial-1.0.0"
+
+authors = [
+    { name = "Amine Bahij", email = "contact@amine-bahij.dev" },
+]
+
+keywords = [
+    "operations-research",
+    "bilevel-optimization",
+    "hub-location",
+    "price-setting",
+    "lagrangian-decomposition",
+    "gurobi",
+    "reproducible-research",
+]
+
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Scientific/Engineering :: Mathematics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+dependencies = [
+    "gurobipy==11.0.3",
+    "bilevelpy==0.1.0",
+    "pandas",
+    "streamlit",
+    "structlog"
+]
+
+[project.urls]
+Repository = "https://github.com/Institute-of-Transport-Logistics/oracle-price-settings-logistics"
+Documentation = "https://institute-of-transport-logistics.github.io/oracle-price-settings-logistics/"
+Issues = "https://github.com/Institute-of-Transport-Logistics/oracle-price-settings-logistics/issues"
+
+[tool.poetry]
+packages = [
+    { include = "oracle_paper", from = "src" },
+]
+
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+pytest-cov = "*"
+poethepoet = "*"
+
+[tool.poe.tasks]
+setup-julia = "python -m oracle_paper.setup_julia"
+test = "pytest"
+test-cov-data = "pytest --cov=src/oracle_paper/data --cov-report=term-missing --cov-report=html:htmlcov-data"
+benchmark = "python reproduce/benchmarking_tool.py"
+[tool.coverage.run]
+source = ["src/oracle_paper/data"]
+omit = ["*/tests/*", "*/__pycache__/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+
+[tool.coverage.html]
+directory = "htmlcov-data"
+
+[tool.poetry.group.docs]
+optional = true
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "*"
+mkdocs-material = "*"
+pymdown-extensions = "*"
+mkdocstrings = {extras = ["python"], version = "*"}
+mkdocs-gen-files = "*"
+mkdocs-literate-nav = "*"
+mkdocs-section-index = "*"
+
+[project.scripts]
+benchmark = "oracle_paper.benchmark:main"
+setup-julia = "oracle_paper.setup_julia:main"
+
+[build-system]
+requires = [
+    "poetry-core>=2.4.0,<3.0.0",
+]
+build-backend = "poetry.core.masonry.api"

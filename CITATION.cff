@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software, please cite the software release and the
+  associated paper.
+
+title: >-
+  An Oracle-based Approach for Price-setting Problems in Logistics:
+  Reference Implementation
+
+type: software
+version: "0.1.0"
+
+authors:
+  - given-names: "Amine"
+    family-names: "Bahij"
+    affiliation: "TU Dortmund University"
+    orcid: "https://orcid.org/0009-0005-9860-9635"
+
+license: "PolyForm-Noncommercial-1.0.0"
+
+repository-code: >-
+  https://github.com/Institute-of-Transport-Logistics/oracle-price-settings-logistics
+
+url: >-
+  https://institute-of-transport-logistics.github.io/oracle-price-settings-logistics/
+
+keywords:
+  - operations research
+  - bilevel optimization
+  - hub location
+  - price setting
+  - logistics
+  - lagrangian decomposition
+
+preferred-citation:
+  type: article
+  title: "An Oracle-based Approach for Price-setting Problems in Logistics"
+
+  authors:
+    - given-names: "Nele"
+      family-names: "Pommerening"
+      affiliation: "TU Dortmund University"
+
+    - given-names: "Maja"
+      family-names: "Hügging"
+      affiliation: "TU Dortmund University"
+
+    - given-names: "Dorothee"
+      family-names: "Henke"
+      affiliation: "University of Passau"
+
+    - given-names: "Christoph"
+      family-names: "Buchheim"
+      affiliation: "TU Dortmund University"
+
+    - given-names: "Uwe"
+      family-names: "Clausen"
+      affiliation: "TU Dortmund University"
+
+  year: 2026

@@ -1,0 +1,101 @@
+site_name: Oracle Paper
+site_description: Implementation for the paper "An Oracle-based Approach for Price-setting Problems in Logistics" (Pommerening et al., 2026).
+site_url: https://institute-of-transport-logistics.github.io/oracle-price-settings-logistics/
+
+repo_url: https://github.com/Institute-of-Transport-Logistics/oracle-price-settings-logistics
+repo_name: Institute-of-Transport-Logistics/oracle-price-settings-logistics
+edit_uri: edit/main/docs/
+
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Problem Formulation: problem.md
+  - Solution Approaches: approaches.md
+  - API Reference: reference/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: green
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: indigo
+      accent: amber
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: docs
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - footnotes
+  - attr_list
+  - pymdownx.mark
+  - toc:
+        permalink: true
+
+plugins:
+  - search
+  - gen-files:
+        scripts:
+          - generate_api_docs.py
+  - literate-nav
+  - section-index
+  - mkdocstrings:
+      handlers:
+        python:
+          paths:
+            - src
+          options:
+            docstring_section_style: table
+            show_root_heading: false
+            show_source: true
+            show_category_heading: false
+            merge_init_into_class: true
+            signature_crossrefs: true
+            filters: ["!^_"]
+
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+watch:
+  - src/oracle_paper
