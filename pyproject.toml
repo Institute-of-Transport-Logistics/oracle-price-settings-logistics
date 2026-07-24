@@ -37,7 +37,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "gurobipy==11.0.0",
+    "gurobipy>=11.0",
     "bilevelpy==0.1.0",
     "pandas",
     "streamlit",
